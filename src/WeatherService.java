@@ -21,7 +21,7 @@ public class WeatherService {
     public static void main(String[] args) throws IOException, InterruptedException {
         double lat = 55.75;
         double lon = 37.62;
-        int limit = 7; // Количество дней для средней температуры
+        int limit = 7;
 
         String weatherData = getWeatherData(lat, lon, limit);
 
@@ -75,7 +75,7 @@ public class WeatherService {
             if (forecast.isJsonObject() &&
                     forecast.getAsJsonObject().has("parts") &&
                     forecast.getAsJsonObject().getAsJsonObject("parts").has("day") &&
-                    forecast.getAsJsonObject().getAsJsonObject("parts").getAsJsonObject("day").has("temp_avg")) { //Обратите внимание на temp_avg
+                    forecast.getAsJsonObject().getAsJsonObject("parts").getAsJsonObject("day").has("temp_avg")) {
                 try {
                     double temp = forecast.getAsJsonObject().getAsJsonObject("parts").getAsJsonObject("day").get("temp_avg").getAsDouble();
                     temperatures.add(temp);
